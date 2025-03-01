@@ -19,10 +19,6 @@ public class Product{
         totalProducts++;
     }
 
-    private boolean isNotEmptyString(String text){
-        return !text.trim().isEmpty();
-    }
-
     public static int getTotalProducts(){
         return totalProducts;
     }
@@ -30,7 +26,7 @@ public class Product{
     public void displayInfo(){
         System.out.println("Product ID: " + this.id);
         System.out.println("Product Name: " + this.name);
-        System.out.println("Product Price: " + this.price + " DA");
+        System.out.printf("Product Price: %.2f DA\n", this.price);
         System.out.println("Product Quantity: " + this.quantity);
         System.out.println("Product Category: " + this.category);
     }
@@ -59,8 +55,12 @@ public class Product{
         return this.category;
     }
 
+    private boolean isNotEmptyString(String text){ // Helper method
+        return !text.trim().isEmpty();
+    }
+
     public void setId(String id){
-        if(id instanceof String && isNotEmptyString(id)){
+        if(id instanceof String && isNotEmptyString(id)){ // Another way of validation
             this.id = id;
         }
         else{
@@ -69,7 +69,7 @@ public class Product{
     }
 
     public void setName(String name){
-        if(name instanceof String && isNotEmptyString(name)){
+        if(name != null && isNotEmptyString(name)){
             this.name = name;
         }
         else{
@@ -96,11 +96,31 @@ public class Product{
     }
 
     public void setCategory(String category){
-        if(category instanceof String && isNotEmptyString(category)){
+        if(category != null && isNotEmptyString(category)){
             this.category = category;
         }
         else{
             System.out.println("Category can't be an empty string!");
+        }
+    }
+
+    void displayInfo(String currency){
+        if(currency.toLowerCase().equals("euro")){
+            System.out.printf("Product Price: %.2f Euro\n", this.price / 250);
+        }
+    }
+
+    void displayInfo(boolean detailed){
+        if(detailed){
+            System.out.println("Product ID: " + this.id);
+            System.out.println("Product Name: " + this.name);
+            System.out.printf("Product Price: %.2f DA\n", this.price);
+            System.out.println("Product Quantity: " + this.quantity);
+            System.out.println("Product Category: " + this.category);
+        }
+        else{
+            System.out.println("Product Name: " + this.name);
+            System.out.printf("Product Price: %.2f DA\n", this.price);
         }
     }
 }
