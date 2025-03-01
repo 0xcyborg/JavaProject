@@ -22,6 +22,12 @@ public class Main {
 
         ElectronicProduct ps4 = new ElectronicProduct("EP1", "PS4 Slim", 29000.0, 2, "Gaming", 2);
         ps4.displayInfo();
+        printSeparator();
+
+        ps4.displayInfo("EuRo");
+        printSeparator();
+        
+        ps4.displayInfo(false);
     }
 
     private static void printSeparator() {
