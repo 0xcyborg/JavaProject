@@ -24,7 +24,7 @@ public class Main {
         ps4.displayInfo();
         printSeparator();
 
-        ps4.displayInfo("EuRo");
+        ps4.displayInfo("USD");
         printSeparator();
         
         ps4.displayInfo(false);

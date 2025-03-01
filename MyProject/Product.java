@@ -7,6 +7,9 @@ public class Product{
     private int quantity;
     private String category;
 
+    public static final int exchangeRateEuro = 250;
+    public static final int exchangeRateUsd = 235;
+
     private static int totalProducts = 0;
 
     Product(String id, String name, double price, int quantity, String category){
@@ -26,7 +29,7 @@ public class Product{
     public void displayInfo(){
         System.out.println("Product ID: " + this.id);
         System.out.println("Product Name: " + this.name);
-        System.out.printf("Product Price: %.2f DA\n", this.price);
+        System.out.printf("Product Price: %.2f DZD\n", this.price);
         System.out.println("Product Quantity: " + this.quantity);
         System.out.println("Product Category: " + this.category);
     }
@@ -55,12 +58,12 @@ public class Product{
         return this.category;
     }
 
-    private boolean isNotEmptyString(String text){ // Helper method
+    private boolean isNotEmptyString(String text){
         return !text.trim().isEmpty();
     }
 
     public void setId(String id){
-        if(id instanceof String && isNotEmptyString(id)){ // Another way of validation
+        if(id != null && isNotEmptyString(id)){
             this.id = id;
         }
         else{
@@ -105,8 +108,11 @@ public class Product{
     }
 
     void displayInfo(String currency){
-        if(currency.toLowerCase().equals("euro")){
-            System.out.printf("Product Price: %.2f Euro\n", this.price / 250);
+        if(currency.toUpperCase().equals("EUR")){
+            System.out.printf("Product Price: %.2f EUR\n", this.price / exchangeRateEuro);
+        }
+        else if(currency.toUpperCase().equals("USD")){
+            System.out.printf("Product Price: %.2f USD\n", this.price / exchangeRateUsd);
         }
     }
 
@@ -114,13 +120,13 @@ public class Product{
         if(detailed){
             System.out.println("Product ID: " + this.id);
             System.out.println("Product Name: " + this.name);
-            System.out.printf("Product Price: %.2f DA\n", this.price);
+            System.out.printf("Product Price: %.2f DZD\n", this.price);
             System.out.println("Product Quantity: " + this.quantity);
             System.out.println("Product Category: " + this.category);
         }
         else{
             System.out.println("Product Name: " + this.name);
-            System.out.printf("Product Price: %.2f DA\n", this.price);
+            System.out.printf("Product Price: %.2f DZD\n", this.price);
         }
     }
 }
