@@ -11,6 +11,6 @@ public class ElectronicProduct extends Product{
     @Override
     public void displayInfo(){
         super.displayInfo();
-        System.out.println("Warranty Period: " + this.warrantyPeriod + " Years");
+        System.out.printf("Warranty Period: %d Year\n", this.warrantyPeriod);
     }
 }
