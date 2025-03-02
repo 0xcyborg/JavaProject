@@ -1,12 +1,13 @@
 package MyProject;
 
-public class Product{
+public class Product implements Taxable{
     private String id;
     private String name;
     private double price;
     private int quantity;
     private String category;
 
+    public static final double taxRate = 5.0 / 100;
     public static final int exchangeRateEuro = 250;
     public static final int exchangeRateUsd = 235;
 
@@ -108,5 +109,10 @@ public class Product{
             this.category = category;
         else
             System.out.println("Category can't be an empty string!");
+    }
+
+    @Override
+    public double calculateTax(){
+        return taxRate * this.price;
     }
 }

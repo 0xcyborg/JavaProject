@@ -41,6 +41,16 @@ public class Main {
             product.displayInfo();
             printSeparator();
         }
+
+        Service delivery = new Service("Home delivery", 600.0, 50);
+        System.out.println("Service Type: " + delivery.getType());
+        System.out.println("Tax: " + delivery.calculateTax());
+        System.out.println("Total Cost: " + delivery.getTotalCost());
+        printSeparator();
+
+        System.out.printf("Tax of %s is: %.2f\n", ps4.getName(), ps4.calculateTax());
+        System.out.printf("%s Total Cost: %.2f\n", ps4.getName(), ps4.getPrice() + ps4.calculateTax());
+        printSeparator();
     }
 
     private static void printSeparator() {
