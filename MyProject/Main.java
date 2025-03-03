@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        /*
         Product cap = new Product("P1", "Blue Cap", 1200.0, 9, "Fashion");
         cap.displayInfo();
         printSeparator();
@@ -51,6 +52,15 @@ public class Main {
         System.out.printf("Tax of %s is: %.2f\n", ps4.getName(), ps4.calculateTax());
         System.out.printf("%s Total Cost: %.2f\n", ps4.getName(), ps4.getPrice() + ps4.calculateTax());
         printSeparator();
+        */
+
+        try{
+            ElectronicProduct ps4 = new ElectronicProduct("EP1", "PS4 Slim", 0.0, 2, "Gaming", 2);
+            ps4.specificInfo();
+        }
+        catch(InvalidValueException e){
+            System.out.println("Error Caught: " + e.getMessage());
+        }
     }
 
     private static void printSeparator() {

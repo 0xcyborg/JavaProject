@@ -1,6 +1,6 @@
 package MyProject;
 
-public class Product implements Taxable{
+public abstract class Product implements Taxable{
     private String id;
     private String name;
     private double price;
@@ -17,7 +17,15 @@ public class Product implements Taxable{
         return totalProducts;
     }
 
-    Product(String id, String name, double price, int quantity, String category){
+    abstract void specificInfo();
+
+    Product(String id, String name, double price, int quantity, String category) throws InvalidValueException{
+        if(price <= 0)
+            throw new InvalidValueException("Price must be positive number!");
+        
+        if(quantity <= 0)
+            throw new InvalidValueException("Price must be positive number!");
+        
         this.id = id;
         this.name = name;
         this.price = price;
@@ -26,7 +34,6 @@ public class Product implements Taxable{
         
         totalProducts++;
     }
-    
     
     public void displayInfo(){
         System.out.println("Product Name: " + this.name);
