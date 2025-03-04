@@ -14,8 +14,10 @@ public class FoodProduct extends Product{
         System.out.println("Expiration Date: " + this.expirationDate);
     }
 
+    /*
     @Override
     void specificInfo(){
         System.out.println("Expiration Date: " + this.expirationDate);
     }
+    */
 }

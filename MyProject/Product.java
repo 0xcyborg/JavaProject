@@ -1,6 +1,6 @@
 package MyProject;
 
-public abstract class Product implements Taxable{
+public /* abstract */ class Product implements Taxable{
     private String id;
     private String name;
     private double price;
@@ -17,7 +17,7 @@ public abstract class Product implements Taxable{
         return totalProducts;
     }
 
-    abstract void specificInfo();
+    /* abstract void specificInfo(); */
 
     Product(String id, String name, double price, int quantity, String category) throws InvalidValueException{
         if(price <= 0)
