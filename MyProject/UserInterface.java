@@ -80,7 +80,7 @@ public class UserInterface {
 
     private void connectToDatabase() {
         try {
-            String url = "jdbc:mysql://localhost:3306/product_db";
+            String url = "jdbc:mysql://localhost:3306/superette";
             String user = "root";
             String password = "test";
 

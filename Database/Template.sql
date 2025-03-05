@@ -1,6 +1,6 @@
-CREATE DATABASE product_db;
+CREATE DATABASE superette;
 
-USE product_db;
+USE superette;
 
 CREATE TABLE products (
     id VARCHAR(50) PRIMARY KEY,
