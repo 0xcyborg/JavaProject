@@ -63,7 +63,7 @@ public class UserInterface {
 
         this.frame.add(buttonPanel, BorderLayout.CENTER);
 
-        String[] tableCols = new String[]{"ID", "Name", "Price", "Quantity", "Category"};
+        String[] tableCols = {"ID", "Name", "Price", "Quantity", "Category"};
         this.tableModel = new DefaultTableModel(tableCols, 0);
         
         this.productTable = new JTable(this.tableModel);
@@ -95,10 +95,6 @@ public class UserInterface {
 
     private void addProductToDatabase() {
         try {
-            String sql = "INSERT INTO products (id, name, price, quantity, category) VALUES (?, ?, ?, ?, ?)";
-            
-            PreparedStatement stmt = this.connection.prepareStatement(sql);
-
             String id = this.idField.getText().trim();
             String name = this.nameField.getText().trim();
             String price = this.priceField.getText().trim();
@@ -115,6 +111,9 @@ public class UserInterface {
 
             new Product(id, name, realPrice, realQuantity, category);
 
+            String sql = "INSERT INTO products (id, name, price, quantity, category) VALUES (?, ?, ?, ?, ?)";
+            
+            PreparedStatement stmt = this.connection.prepareStatement(sql);
             stmt.setString(1, id);
             stmt.setString(2, name);
             stmt.setFloat(3, realPrice);
@@ -169,8 +168,10 @@ public class UserInterface {
         
         try {
             String sql = "SELECT * FROM products";
+            
             PreparedStatement stmt = this.connection.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
+            
             while (rs.next()) {
                 this.tableModel.addRow(new Object[]{
                         rs.getString("id"),
