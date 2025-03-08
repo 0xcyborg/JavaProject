@@ -53,13 +53,13 @@ public class UserInterface {
         JButton deleteButton = new JButton("Delete Product");
         JButton displayAllButton = new JButton("Show All Products");
         JButton displayOutButton = new JButton("Out-Of-Stock Products");
-        JButton soldProduct = new JButton("Sold");
+        JButton sellProduct = new JButton("Sell");
         
         buttonPanel.add(addButton);
         buttonPanel.add(deleteButton);
         buttonPanel.add(displayAllButton);
         buttonPanel.add(displayOutButton);
-        buttonPanel.add(soldProduct);
+        buttonPanel.add(sellProduct);
 
         this.frame.add(buttonPanel, BorderLayout.CENTER);
 
@@ -76,7 +76,7 @@ public class UserInterface {
         deleteButton.addActionListener(e -> this.deleteProductFromDatabase());
         displayAllButton.addActionListener(e -> this.displayAllProductsFromDatabase());
         displayOutButton.addActionListener(e -> this.displayOutProductsFromDatabase());
-        soldProduct.addActionListener(e -> this.soldProduct());
+        sellProduct.addActionListener(e -> this.sellProduct());
 
         this.frame.setVisible(true);
     }
@@ -209,7 +209,7 @@ public class UserInterface {
         }
     }
 
-    private void soldProduct(){
+    private void sellProduct(){
         int selectedRow = this.productTable.getSelectedRow();
 
         if (selectedRow == -1) {
