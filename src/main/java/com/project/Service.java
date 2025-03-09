@@ -1,5 +1,4 @@
-package MyProject;
-
+package com.project;
 class Service implements Taxable {
     private String type;
     private double baseCost;

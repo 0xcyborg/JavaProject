@@ -1,2 +1,0 @@
-Main-Class: MyProject.Main
-Class-Path: Database/mysql-connector-j-9.2.0.jar

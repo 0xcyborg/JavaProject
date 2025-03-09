@@ -1,5 +1,4 @@
-package MyProject;
-
+package com.project;
 public /* abstract */ class Product implements Taxable{
     private String id;
     private String name;

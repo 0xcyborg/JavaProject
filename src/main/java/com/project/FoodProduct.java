@@ -1,5 +1,4 @@
-package MyProject;
-
+package com.project;
 public class FoodProduct extends Product{
     private String expirationDate;
 

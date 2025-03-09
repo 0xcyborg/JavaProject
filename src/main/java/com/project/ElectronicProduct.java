@@ -1,5 +1,4 @@
-package MyProject;
-
+package com.project;
 public class ElectronicProduct extends Product{
     private int warrantyPeriod;
     
